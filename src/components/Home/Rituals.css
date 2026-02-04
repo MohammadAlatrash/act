@@ -1,0 +1,124 @@
+.ritual-launcher {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.launcher-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.ritual-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-glass);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.ritual-btn.launch {
+    border-color: var(--accent-primary);
+}
+
+.ritual-btn.launch:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.ritual-btn.shutdown {
+    border-color: var(--accent-secondary);
+}
+
+.ritual-btn.shutdown:hover {
+    background: var(--bg-primary);
+    border-color: var(--accent-secondary);
+}
+
+.ritual-overlay {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 350px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ritual-progress {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 25px;
+    left: 40px;
+}
+
+.progress-dot {
+    width: 40px;
+    height: 4px;
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.progress-dot.active {
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.step-count {
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ritual-content h2 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.ritual-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.action-requirement {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-primary);
+}
+
+.ritual-footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.ritual-footer button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.next-btn {
+    background: var(--accent-primary);
+    border: none;
+    color: var(--bg-primary);
+}
+
+.next-btn:hover {
+    box-shadow: 0 0 20px var(--accent-glow);
+}

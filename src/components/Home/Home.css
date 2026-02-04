@@ -1,0 +1,115 @@
+.home-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 24px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-card h3 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--accent-primary);
+}
+
+.stat-value .unit {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.strategic-overview {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.active-goals,
+.time-waste-analysis {
+    padding: 30px;
+}
+
+.active-goals h2,
+.time-waste-analysis h2 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+.goal-item {
+    margin-bottom: 20px;
+}
+
+.goal-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.leak-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+    height: 150px;
+    border-bottom: 2px solid var(--border-glass);
+}
+
+.leak-item {
+    width: 30px;
+    background: var(--error);
+    opacity: 0.6;
+    border-radius: 4px 4px 0 0;
+    cursor: help;
+    transition: var(--transition-smooth);
+}
+
+.leak-item:hover {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}

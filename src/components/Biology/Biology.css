@@ -1,0 +1,215 @@
+.bio-monitor {
+    padding: 30px;
+}
+
+.bio-header {
+    margin-bottom: 30px;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.sleep-tracker,
+.habit-tracking {
+    padding: 25px;
+}
+
+.sleep-tracker h3,
+.habit-tracking h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.sleep-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-field input {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-glass);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.sleep-stages {
+    display: flex;
+    gap: 10px;
+}
+
+.stage {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+}
+
+.stage span {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.stage.rem {
+    border-color: #f472b6;
+    color: #f472b6;
+}
+
+.stage.deep {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.save-btn {
+    width: 100%;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.save-btn:hover {
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.habit-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.habit-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.habit-check-group {
+    display: flex;
+    gap: 8px;
+}
+
+.day-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-glass);
+}
+
+.day-circle.active {
+    background: var(--success);
+    box-shadow: 0 0 5px var(--success);
+    border-color: var(--success);
+}
+
+.text-error {
+    color: var(--error);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+/* Circadian Chart */
+.circadian-prediction {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.focus-window-alert {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-primary);
+}
+
+.focus-window-alert .icon {
+    font-size: 1.5rem;
+}
+
+.focus-window-alert strong {
+    display: block;
+    color: var(--text-primary);
+}
+
+.rhythm-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.rhythm-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 30px;
+}
+
+.rhythm-bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: var(--transition-smooth);
+}
+
+.rhythm-bar.peak {
+    background: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.rhythm-bar.dip {
+    background: var(--error);
+    opacity: 0.5;
+}
+
+.rhythm-bar.rebound {
+    background: var(--accent-secondary);
+}
+
+.rhythm-bar.wind {
+    background: var(--text-muted);
+}
+
+.rhythm-bar-group span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}

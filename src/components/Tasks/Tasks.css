@@ -1,0 +1,291 @@
+.task-manager {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    background: var(--bg-secondary);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-glow);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.add-btn:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 200px 180px;
+    gap: 30px;
+    transition: var(--transition-smooth);
+}
+
+.task-card.completed-task {
+    opacity: 0.5;
+    border-color: var(--success);
+}
+
+.task-card:hover {
+    border-color: var(--border-glow);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.task-title-row h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.priority-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.priority-badge.urgent {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+    border: 1px solid var(--error);
+}
+
+.priority-badge.high {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.priority-badge.medium {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.priority-badge.low {
+    background: rgba(148, 163, 184, 0.2);
+    color: var(--text-secondary);
+    border: 1px solid var(--text-secondary);
+}
+
+.task-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.task-metrics {
+    display: flex;
+    gap: 30px;
+}
+
+.task-metrics .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metric .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.metric .value {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.task-progress-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    height: 6px;
+    background: var(--bg-primary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.time-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.time-controls button {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    color: var(--text-secondary);
+    padding: 4px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.time-controls button:hover {
+    background: var(--accent-glow);
+    color: var(--accent-primary);
+}
+
+.action-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.action-btn.complete:hover {
+    background: var(--success);
+    color: white;
+}
+
+.action-btn.undo:hover {
+    background: var(--warning);
+    color: white;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 500px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-glass);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.modal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-secondary);
+}
+
+.confirm-btn {
+    background: var(--accent-primary);
+    border: none;
+    color: var(--bg-primary);
+}
+
+.confirm-btn:hover {
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.goal-link-tag {
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    background: rgba(var(--accent-secondary-rgb, 0, 150, 255), 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-glass);
+}
+
+.goal-picker {
+    width: 100%;
+    margin-top: 10px;
+}
