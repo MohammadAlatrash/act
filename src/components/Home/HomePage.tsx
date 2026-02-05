@@ -2,9 +2,11 @@ import React from 'react';
 import RitualSovereign from './RitualSovereign';
 import EnergyMonitorWidget from './EnergyMonitorWidget';
 import RegionalEcosystem from './RegionalEcosystem';
+import SovereignActivity from './SovereignActivity';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { SovereignAnchor } from '../../types';
 import './Home.css';
+import './SovereignActivity.css';
 
 export default function HomePage() {
   const [anchors] = useLocalStorage<SovereignAnchor[]>('sovereign-anchors', [
@@ -115,6 +117,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SovereignActivity />
       <RegionalEcosystem />
     </div>
   );

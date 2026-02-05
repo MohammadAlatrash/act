@@ -1,4 +1,3 @@
-import DashboardLayout from '../components/Layout/DashboardLayout';
 import './globals.css';
 import { Metadata } from 'next';
 
@@ -8,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 import { FocusProvider } from '../context/FocusContext';
+import { LanguageProvider } from '../context/LanguageContext';
 
 export default function RootLayout({
   children,
@@ -15,11 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ar">
       <body>
-        <FocusProvider>
-          <DashboardLayout>{children}</DashboardLayout>
-        </FocusProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <FocusProvider>
+              {children}
+            </FocusProvider>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

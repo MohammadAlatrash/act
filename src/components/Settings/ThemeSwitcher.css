@@ -1,0 +1,35 @@
+.theme-switcher {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border-glass);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--text-primary);
+}
+
+.theme-switcher:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.theme-switcher svg {
+    transition: transform 0.3s ease;
+}
+
+.theme-switcher:hover svg {
+    transform: rotate(20deg);
+}
+
+.theme-switcher.light svg {
+    color: var(--accent-primary);
+}
+
+.theme-switcher.dark svg {
+    color: var(--accent-secondary);
+}

@@ -9,7 +9,10 @@ import InterrogativeLoop from '../Audit/InterrogativeLoop';
 import ReportsAnalytics from '../Reports/ReportsAnalytics';
 import SovereignSettings from '../Settings/SovereignSettings';
 import TrusteeshipDashboard from '../Amanat/TrusteeshipDashboard';
+import LanguageSwitcher from '../Settings/LanguageSwitcher';
+import ThemeSwitcher from '../Settings/ThemeSwitcher';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLanguage } from '../../context/LanguageContext';
 import { calculateSovereignRank } from '../../lib/gamification';
 import { Task } from '../../types';
 import { useFocus } from '../../context/FocusContext';
@@ -18,6 +21,7 @@ import QuickCapture from '../Capture/QuickCapture';
 import './Dashboard.css';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+    const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState('Dashboard');
     const [tasks] = useLocalStorage<Task[]>('tasks', []);
     const [habits] = useLocalStorage<any[]>('habits', []);
@@ -84,19 +88,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </aside>
             <main className="main-content">
                 <header className="main-header glass-panel">
-                    <div className="header-info">
-                        <h1>{activeTab} Overview</h1>
-                        <p className="text-secondary">Focus on the target. Stay to the point.</p>
+                    <div className="header-left">
+                        <h1>{t.dashboard.title}</h1>
                     </div>
-                    <div className="user-profile">
-                        <div className="rank-indicator">
-                            <span className="rank-label">{mounted ? rankStats.rank : '---'}</span>
-                            <div className="rank-progress-mini">
-                                <div className="mini-fill" style={{ width: `${mounted ? rankStats.nextRankProgress : 0}%` }}></div>
-                            </div>
+                    <div className="header-right">
+                        <ThemeSwitcher />
+                        <LanguageSwitcher />
+                        <div className="user-profile">
+                            <div className="rank-badge">{rankStats.rank}</div>
+                            <span>{rankStats.score} XP</span>
                         </div>
-                        <span className="status-indicator online"></span>
-                        <span>System Owner</span>
                     </div>
                 </header>
                 {globalAlert && (

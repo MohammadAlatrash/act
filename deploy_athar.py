@@ -4,11 +4,11 @@ import shutil
 import subprocess
 import sys
 
-# --- CONFIGURATION (Synced from Sovereign Credentials) ---
+# --- CONFIGURATION (Athar Production Subfolder) ---
 FTP_HOST = "194.55.132.231"
 FTP_USER = "u990898762.mistyrose-sardine-562773.hostingersite.com"
 FTP_PASS = "Yosr2026!"
-FTP_REMOTE_ROOT = "/public_html/athar" # Athar Dedicated Production Subfolder
+FTP_REMOTE_ROOT = "/public_html/athar"
 
 LOCAL_ROOT = os.path.dirname(os.path.abspath(__file__))
 EXPORT_DIR = os.path.join(LOCAL_ROOT, 'out')
@@ -74,7 +74,13 @@ def main():
         ftp.connect(FTP_HOST, 21, timeout=120)
         ftp.set_pasv(True)
         ftp.login(FTP_USER, FTP_PASS)
-        ftp.cwd(FTP_REMOTE_ROOT)
+        
+        try:
+            ftp.cwd(FTP_REMOTE_ROOT)
+        except:
+            print(f"📁 Creating remote directory {FTP_REMOTE_ROOT}...")
+            ftp.mkd(FTP_REMOTE_ROOT)
+            ftp.cwd(FTP_REMOTE_ROOT)
         
         print("✅ Connection Established. Commencing sync...")
         

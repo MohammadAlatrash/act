@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import './IntentionGateway.css';
 
 interface IntentionGatewayProps {
@@ -11,24 +12,26 @@ interface IntentionGatewayProps {
 }
 
 export default function IntentionGateway({ isOpen, onClose, onConfirm, taskTitle }: IntentionGatewayProps) {
+    const { t } = useLanguage();
+
     if (!isOpen) return null;
 
     const intentions = [
-        { id: 'Ihsan', label: 'إعمار الأرض / إحسان', desc: 'Excellence & Building the Earth', icon: '🌍' },
-        { id: 'Nafa', label: 'نفع الأمة', desc: 'Benefit to the Ummah', icon: '🤝' },
-        { id: 'Rizq', label: 'طلب الرزق الحلال', desc: 'Seeking Halal Sustenance', icon: '⚖️' },
-        { id: 'Itqan', label: 'إتقان العمل لله', desc: 'Mastery for the sake of Allah', icon: '💎' }
+        { id: 'Ihsan', label: t.intention.ihsan, desc: t.intention.ihsanDesc, icon: '🌍' },
+        { id: 'Nafa', label: t.intention.nafa, desc: t.intention.nafaDesc, icon: '🤝' },
+        { id: 'Rizq', label: t.intention.rizq, desc: t.intention.rizqDesc, icon: '⚖️' },
+        { id: 'Itqan', label: t.intention.itqan, desc: t.intention.itqanDesc, icon: '💎' }
     ];
 
     return (
         <div className="intention-overlay">
             <div className="intention-modal glass-panel glow-border animate-scale-up">
                 <div className="modal-header">
-                    <h2 className="gradient-text">Renew Intention | تجديد النية</h2>
-                    <p className="text-secondary">Aligning mission: <strong>{taskTitle}</strong></p>
+                    <h2 className="gradient-text">{t.intention.title}</h2>
+                    <p className="text-secondary">{t.intention.subtitle}: <strong>{taskTitle}</strong></p>
                 </div>
 
-                <p className="verse-quote italic">"قل إن صلاتي ونسكي ومحياي ومماتي لله رب العالمين"</p>
+                <p className="verse-quote italic">{t.intention.verse}</p>
 
                 <div className="intention-grid">
                     {intentions.map(intent => (
@@ -47,7 +50,7 @@ export default function IntentionGateway({ isOpen, onClose, onConfirm, taskTitle
                 </div>
 
                 <div className="modal-footer">
-                    <button className="cancel-btn" onClick={onClose}>Proceed without Alignment</button>
+                    <button className="cancel-btn" onClick={onClose}>{t.intention.proceed}</button>
                 </div>
             </div>
         </div>

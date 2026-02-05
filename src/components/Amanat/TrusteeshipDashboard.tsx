@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLanguage } from '../../context/LanguageContext';
 import { Task, DailyBioState } from '../../types';
 import './Amanat.css';
 
 export default function TrusteeshipDashboard() {
+    const { t } = useLanguage();
     const [tasks] = useLocalStorage<Task[]>('tasks', []);
     const [sleepLog] = useLocalStorage<number[]>('sleep-log', [7.5]);
 
@@ -13,16 +15,16 @@ export default function TrusteeshipDashboard() {
     const avgSleep = sleepLog.length > 0 ? (sleepLog.reduce((a, b) => a + b, 0) / sleepLog.length).toFixed(1) : 0;
 
     const trusts = [
-        { name: 'أمانة الوقت (Time)', value: `${totalLegacyWork.toFixed(1)} hrs`, desc: 'Invested in Legacy', status: 'Optimal', icon: '⏳' },
-        { name: 'أمانة الصحة (Health)', value: `${avgSleep} hrs`, desc: 'Average Restoration', status: 'Refining', icon: '🌿' },
-        { name: 'أمانة العقل (Cognition)', value: 'High', desc: 'Focus Alignment', status: 'Radiant', icon: '🧠' }
+        { name: t.amanat.time, value: `${totalLegacyWork.toFixed(1)} ${t.common.hours}`, desc: t.amanat.timeDesc, status: 'Optimal', icon: '⏳' },
+        { name: t.amanat.health, value: `${avgSleep} ${t.common.hours}`, desc: t.amanat.healthDesc, status: 'Refining', icon: '🌿' },
+        { name: t.amanat.mind, value: 'High', desc: t.amanat.mindDesc, status: 'Radiant', icon: '🧠' }
     ];
 
     return (
         <div className="amanat-dashboard glass-panel">
             <div className="amanat-header">
-                <h2 className="gradient-text">Trusteeship Dashboard | لوحة الأمانات</h2>
-                <p className="text-secondary">"You are a steward (مستخلف) of these gifts. How is your companionship with them?"</p>
+                <h2 className="gradient-text">{t.amanat.title}</h2>
+                <p className="text-secondary">{t.amanat.subtitle}</p>
             </div>
 
             <div className="amanat-grid">
@@ -41,8 +43,8 @@ export default function TrusteeshipDashboard() {
 
             <div className="amanat-footer mt-8">
                 <div className="verse-panel glass-panel">
-                    <p className="arabic-verse">"أفحسبتم أنما خلقناكم عبثاً"</p>
-                    <p className="verse-meaning text-muted italic">"Did you then think that We created you in vain?"</p>
+                    <p className="arabic-verse">{t.amanat.verse}</p>
+                    <p className="verse-meaning text-muted italic">{t.amanat.verseMeaning}</p>
                 </div>
             </div>
         </div>
