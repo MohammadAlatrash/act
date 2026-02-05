@@ -13,7 +13,8 @@ export default function StrategyManager() {
             type: 'Yearly',
             targetDate: '2026-12-31',
             progress: 35,
-            projects: ['Launch in Europe', 'Partner with localized distributors']
+            projects: ['Launch in Europe', 'Partner with localized distributors'],
+            status: 'Active'
         }
     ]);
 
@@ -31,7 +32,8 @@ export default function StrategyManager() {
         type: 'Quarterly',
         targetDate: new Date().toISOString().split('T')[0],
         progress: 0,
-        projects: []
+        projects: [],
+        status: 'Active'
     });
 
     const [projectInput, setProjectInput] = useState('');
@@ -44,11 +46,12 @@ export default function StrategyManager() {
             type: newGoal.type as any,
             targetDate: new Date(newGoal.targetDate!).toISOString(),
             progress: Number(newGoal.progress) || 0,
-            projects: newGoal.projects || []
+            projects: newGoal.projects || [],
+            status: 'Active'
         };
         setGoals([...goals, goal]);
         setIsModalOpen(false);
-        setNewGoal({ title: '', type: 'Quarterly', targetDate: new Date().toISOString().split('T')[0], progress: 0, projects: [] });
+        setNewGoal({ title: '', type: 'Quarterly', targetDate: new Date().toISOString().split('T')[0], progress: 0, projects: [], status: 'Active' });
     };
 
     const deleteGoal = (id: string) => {

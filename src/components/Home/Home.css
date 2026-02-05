@@ -106,10 +106,216 @@
     box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
 }
 
+.dashboard-top-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.energy-widget {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.widget-header h4 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-pill {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-pill.peak {
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+}
+
+.status-pill.dip {
+    background: rgba(248, 113, 113, 0.2);
+    color: #f87171;
+}
+
+.status-pill.rebound {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+}
+
+.status-pill.wind.down {
+    background: rgba(156, 163, 175, 0.2);
+    color: #9ca3af;
+}
+
+.battery-display {
+    position: relative;
+    height: 40px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-glass);
+}
+
+.battery-level {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+    box-shadow: 0 0 15px var(--accent-glow);
+    transition: width 1s ease-in-out;
+}
+
+.battery-percentage {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.widget-insight p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.text-accent {
+    color: var(--accent-primary);
+}
+
 .mt-4 {
     margin-top: 1rem;
 }
 
 .text-center {
     text-align: center;
+}
+
+/* Time Budgeting */
+.budget-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.budget-chart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 3.8;
+}
+
+.circle-fill {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+}
+
+.circle-fill.sleep {
+    stroke: #4facfe;
+}
+
+.circle-fill.work {
+    stroke: #f093fb;
+}
+
+.circle-fill.spiritual {
+    stroke: #f6d365;
+}
+
+/* Gold for spiritual anchors */
+
+.circle-fill.margin {
+    stroke: #00f2fe;
+}
+
+.budget-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.balance-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.balance-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.budget-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.sleep {
+    background: #4facfe;
+}
+
+.dot.work {
+    background: #f093fb;
+}
+
+.dot.spiritual {
+    background: #f6d365;
+}
+
+.dot.margin {
+    background: #00f2fe;
+}
+
+.atomic-tag {
+    font-size: 0.7rem;
+    background: rgba(0, 242, 254, 0.1);
+    color: #00f2fe;
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 242, 254, 0.2);
 }

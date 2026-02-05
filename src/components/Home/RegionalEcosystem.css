@@ -1,0 +1,112 @@
+.regional-ecosystem {
+    padding: 24px;
+    margin-top: 20px;
+    grid-column: span 3;
+}
+
+.ecosystem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.location-tag {
+    font-size: 0.75rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.al-falah-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.al-falah-metric .label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.falah-dial {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.falah-dial svg {
+    transform: rotate(-90deg);
+}
+
+.dial-val {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--success);
+}
+
+.opportunities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.opportunities-list h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.opportunity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid var(--border-glass);
+    transition: var(--transition-smooth);
+}
+
+.opportunity-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent-glow);
+}
+
+.op-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.op-type {
+    font-size: 0.7rem;
+    color: var(--accent-secondary);
+}
+
+.op-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.ecosystem-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.85rem;
+}

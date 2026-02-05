@@ -157,3 +157,59 @@
 .text-success {
     color: var(--success);
 }
+
+.legacy-projection-section {
+    grid-column: span 2;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.projection-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 300px;
+    gap: 15px;
+    padding: 40px 20px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.projection-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.projection-bar {
+    width: 100%;
+    min-width: 40px;
+    background: linear-gradient(to top, var(--accent-secondary), var(--accent-primary));
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.impact-val {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+}
+
+.p-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}

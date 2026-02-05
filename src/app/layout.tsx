@@ -1,5 +1,13 @@
 import DashboardLayout from '../components/Layout/DashboardLayout';
 import './globals.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Athar | أثر',
+  description: 'The Sovereign Life Operating System',
+};
+
+import { FocusProvider } from '../context/FocusContext';
 
 export default function RootLayout({
   children,
@@ -9,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DashboardLayout>{children}</DashboardLayout>
+        <FocusProvider>
+          <DashboardLayout>{children}</DashboardLayout>
+        </FocusProvider>
       </body>
     </html>
   );

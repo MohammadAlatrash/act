@@ -1,4 +1,5 @@
 import { Task, StrategicGoal } from '../types';
+import { calculateAtharScore } from './intelligence';
 
 export type SovereignRank = 'Novice' | 'Vanguard' | 'Strategist' | 'Grandmaster' | 'Sovereign';
 
@@ -11,13 +12,20 @@ export interface RankStats {
 export function calculateSovereignRank(tasks: Task[], habits: any[]): RankStats {
     let score = 0;
 
-    // Points for completed tasks
-    const completedTasks = tasks.filter(t => t.status === 'Completed');
-    score += completedTasks.length * 50;
+    // Use calculateAtharScore as the primary driver for ranking
+    // Since AtharScore depends on time entries, we'll need to mock/pass them here
+    // or keep the basic task-based score as a foundation and add AS to it.
 
-    // Bonus for strategic alignment (linked tasks)
-    const linkedTasks = completedTasks.filter(t => !!t.goalId);
-    score += linkedTasks.length * 30;
+    // For now, let's assume we have a global set of timeEntries (mocked for rank calculation)
+    // or we use the legacyScore directly as a weighting factor for simple completion.
+
+    tasks.filter(t => t.status === 'Completed').forEach(t => {
+        const base = 50;
+        const legacyWeight = (t.legacyScore || 50) / 100;
+        const presenceBonus = t.presenceAverage || 1;
+
+        score += base * legacyWeight * presenceBonus;
+    });
 
     // Points for habit streaks
     habits.forEach(h => {

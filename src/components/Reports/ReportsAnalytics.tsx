@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { Task } from '../../types';
+import { calculateLegacyProjection } from '../../lib/intelligence';
+import { calculateSovereignRank } from '../../lib/gamification';
 import './Reports.css';
 
 export default function ReportsAnalytics() {
     const [interval, setInterval] = useState<'Daily' | 'Weekly' | 'Monthly' | 'Quarterly' | 'Yearly'>('Weekly');
+    const [tasks] = useLocalStorage<Task[]>('tasks', []);
+    const [habits] = useLocalStorage<any[]>('habits', []);
+
+    const rankStats = calculateSovereignRank(tasks, habits);
+    const projection = calculateLegacyProjection(tasks, rankStats.score);
 
     return (
         <div className="reports-manager glass-panel">
@@ -65,6 +74,21 @@ export default function ReportsAnalytics() {
                             <strong>Automation:</strong> Automate data entry for recurring finance tasks.
                         </li>
                     </ul>
+                </section>
+
+                <section className="legacy-projection-section glass-panel glow-border">
+                    <h2 className="gradient-text">Future Athar | أثرك المستقبلي</h2>
+                    <p className="text-secondary mb-4">AI Projection of your Legacy Velocity over the next 12 months.</p>
+                    <div className="projection-chart">
+                        {projection.map((p, idx) => (
+                            <div key={idx} className="projection-column">
+                                <div className="projection-bar" style={{ height: `${(p.impact / 10000) * 100}%` }}>
+                                    <span className="impact-val">{p.impact}</span>
+                                </div>
+                                <span className="p-label">{p.time}</span>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </div>
         </div>

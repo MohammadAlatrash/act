@@ -1,0 +1,86 @@
+.amanat-dashboard {
+    padding: 30px;
+}
+
+.amanat-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.amanat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.trust-card {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    align-items: center;
+}
+
+.trust-icon {
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.trust-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.trust-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    margin-bottom: 4px;
+}
+
+.trust-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.trust-status {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.trust-status.optimal {
+    color: var(--success);
+}
+
+.trust-status.radiant {
+    color: #f6d365;
+}
+
+.trust-status.refining {
+    color: var(--accent-secondary);
+}
+
+.verse-panel {
+    text-align: center;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.arabic-verse {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}

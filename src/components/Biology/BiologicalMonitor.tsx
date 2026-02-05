@@ -7,6 +7,7 @@ import './Biology.css';
 
 export default function BiologicalMonitor() {
     const [sleepLog, setSleepLog] = useLocalStorage<number[]>('sleep-log', [7.2, 7.5, 6.8, 8.1, 7.4]);
+    const [mood, setMood] = useLocalStorage<any>('current-mood', 'Steady');
     const [sleepInput, setSleepInput] = useState('');
 
     const [habits, setHabits] = useLocalStorage<any[]>('habits', [
@@ -58,6 +59,29 @@ export default function BiologicalMonitor() {
                                     <span> {focusWindow?.time} - {focusWindow?.label} ({focusWindow?.level}%)</span>
                                 </div>
                             </div>
+                            <div className="energy-status-summary">
+                                <span>Current Engine Status: <strong>{focusWindow?.level && focusWindow.level > 80 ? 'Supercharged' : 'Optimal'}</strong></span>
+                            </div>
+                            <div className="mood-selector glass-panel mt-4">
+                                <h4>Current Consciousness State</h4>
+                                <div className="mood-grid">
+                                    {['Radiant', 'Steady', 'Foggy', 'Burnout'].map(m => (
+                                        <button
+                                            key={m}
+                                            className={`mood-btn ${mood === m ? 'active' : ''}`}
+                                            onClick={() => setMood(m)}
+                                        >
+                                            {m}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                            {require('../../lib/intelligence').suggestRecoveryAction(120, { mood }) && (
+                                <div className="recovery-protocol glass-panel glow-border mt-4">
+                                    <span className="icon">🧘</span>
+                                    <p>{require('../../lib/intelligence').suggestRecoveryAction(120, { mood })}</p>
+                                </div>
+                            )}
                             <div className="rhythm-chart">
                                 {rhythm.filter((_, i) => i % 3 === 0).map((r, i) => (
                                     <div key={i} className="rhythm-bar-group">
@@ -112,6 +136,19 @@ export default function BiologicalMonitor() {
                                         ></div>
                                     ))}
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="spiritual-anchors glass-panel glow-border">
+                    <h3>Sovereign Anchors (الهوية العربية)</h3>
+                    <p className="text-muted">Cultural and spiritual focus pillars.</p>
+                    <div className="anchor-list">
+                        {require('../../lib/anchors').calculateDailyAnchors().map((anchor: any) => (
+                            <div key={anchor.id} className="anchor-item">
+                                <span className="anchor-time">{anchor.time}</span>
+                                <span className="anchor-name">{anchor.name}</span>
                             </div>
                         ))}
                     </div>

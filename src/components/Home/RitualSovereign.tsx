@@ -14,7 +14,8 @@ const MORNING_LAUNCH: RitualStep[] = [
 ];
 
 const EVENING_SHUTDOWN: RitualStep[] = [
-    { title: 'Performance Audit', description: 'log actual hours vs estimates and identify time leakage.', action: 'Update Tasks' },
+    { title: 'Performance Audit', description: 'Log actual hours vs estimates. Compare total activity + sleep against the 24h cycle.', action: 'Verify 24h Coverage' },
+    { title: 'Leakage Identification', description: 'Identify where the "Time Gaps" went (Social Media, Context Switching, etc.)', action: 'Update Leakage Map' },
     { title: 'Cognitive Offload', description: 'Write down any lingering ideas to "dump" your brain for sleep.', action: 'Note Capture' },
     { title: 'Recovery Commitment', description: 'Set your target wind-down time to clear sleep debt.', action: 'Set Sleep Target' }
 ];
